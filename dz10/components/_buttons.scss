@@ -1,0 +1,66 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  font-family: $font-primary;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  
+  &--primary {
+    background-color: $color-primary;
+    color: white;
+    
+    &:hover {
+      background-color: darken($color-primary, 10%);
+    }
+    
+    &:active {
+      background-color: darken($color-primary, 15%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+    }
+  }
+  
+  &--secondary {
+    background-color: $color-secondary;
+    color: $color-text;
+    border: 1px solid $color-border;
+    
+    &:hover {
+      background-color: darken($color-secondary, 5%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($color-secondary, 0.3);
+    }
+  }
+  
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &--small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.875rem;
+  }
+  
+  &--medium {
+    padding: $spacing-sm $spacing-md;
+    font-size: 1rem;
+  }
+  
+  &--large {
+    padding: $spacing-md $spacing-lg;
+    font-size: 1.125rem;
+  }
+}
