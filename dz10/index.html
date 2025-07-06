@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Kit Documentation</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="header">
+    <h1>UI Kit Documentation</h1>
+    <p>Библиотека компонентов для FastAPI проекта</p>
+  </header>
+
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#buttons">Кнопки</a></li>
+      <li><a href="#inputs">Поля ввода</a></li>
+      <li><a href="#cards">Карточки</a></li>
+      <li><a href="#navbar">Навигация</a></li>
+      <li><a href="#dropdowns">Выпадающие списки</a></li>
+      <li><a href="#grid">Сетка</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <!-- Buttons Section -->
+    <section id="buttons" class="component-section">
+      <h2>Кнопки</h2>
+      <div class="button-group">
+        <button class="button button--primary button--small">Primary Small</button>
+        <button class="button button--primary button--medium">Primary Medium</button>
+        <button class="button button--primary button--large">Primary Large</button>
+        
+        <button class="button button--secondary button--small">Secondary Small</button>
+        <button class="button button--secondary button--medium">Secondary Medium</button>
+        <button class="button button--secondary button--large">Secondary Large</button>
+        
+        <button class="button button--disabled" disabled>Disabled</button>
+      </div>
+      
+      <div class="code-example">
+        <pre><code>&lt;button class="button button--primary button--medium"&gt;Click me&lt;/button&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Inputs Section -->
+    <section id="inputs" class="component-section">
+      <h2>Поля ввода</h2>
+      <div class="input-group">
+        <div class="input">
+          <label for="normal-input" class="input__label">Обычное поле</label>
+          <input type="text" id="normal-input" class="input__field" placeholder="Введите текст">
+        </div>
+        
+        <div class="input input--with-icon">
+          <label for="icon-input" class="input__label">Поле с иконкой</label>
+          <div class="input__wrapper">
+            <input type="text" id="icon-input" class="input__field" placeholder="Поиск">
+            <span class="input__icon">🔍</span>
+          </div>
+        </div>
+        
+        <div class="input input--error">
+          <label for="error-input" class="input__label">Поле с ошибкой</label>
+          <input type="text" id="error-input" class="input__field" placeholder="Пример ошибки">
+          <span class="input__error-message">Это поле обязательно для заполнения</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="component-section">
+      <h2>Карточки</h2>
+      <div class="card-grid">
+        <div class="card card--small">
+          <h3 class="card__title">Маленькая карточка</h3>
+          <p class="card__text">Простая карточка без изображения</p>
+        </div>
+        
+        <div class="card card--medium">
+          <img src="images/placeholder.jpg" alt="Пример" class="card__image">
+          <div class="card__content">
+            <h3 class="card__title">Средняя карточка</h3>
+            <p class="card__text">Карточка с изображением и текстовым содержимым</p>
+          </div>
+        </div>
+        
+        <div class="card card--large">
+          <img src="images/placeholder.jpg" alt="Пример" class="card__image">
+          <div class="card__content">
+            <h3 class="card__title">Большая карточка</h3>
+            <p class="card__text">Расширенная карточка с дополнительным содержимым</p>
+            <button class="button button--primary button--small">Действие</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navbar Section -->
+    <section id="navbar" class="component-section">
+      <h2>Навигационное меню</h2>
+      <nav class="navbar">
+        <div class="navbar__brand">Логотип</div>
+        <button class="navbar__toggle" aria-label="Меню">
+          <span class="navbar__toggle-icon"></span>
+        </button>
+        <div class="navbar__menu">
+          <a href="#" class="navbar__item">Главная</a>
+          <a href="#" class="navbar__item">О нас</a>
+          <a href="#" class="navbar__item">Услуги</a>
+          <a href="#" class="navbar__item">Контакты</a>
+        </div>
+      </nav>
+    </section>
+
+    <!-- Dropdowns Section -->
+    <section id="dropdowns" class="component-section">
+      <h2>Выпадающие списки</h2>
+      <div class="dropdown">
+        <button class="dropdown__toggle">Выберите опцию</button>
+        <ul class="dropdown__menu">
+          <li><a href="#" class="dropdown__item">Опция 1</a></li>
+          <li><a href="#" class="dropdown__item">Опция 2</a></li>
+          <li><a href="#" class="dropdown__item">Опция 3</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
