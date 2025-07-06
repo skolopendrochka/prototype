@@ -1,0 +1,126 @@
+// Base
+@import 'base/reset';
+@import 'base/variables';
+
+// Components
+@import 'components/buttons';
+@import 'components/inputs';
+@import 'components/cards';
+@import 'components/navbar';
+@import 'components/dropdowns';
+
+// Layout
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Documentation styles
+.header {
+  padding: 2rem 0;
+  text-align: center;
+  background-color: $color-primary;
+  color: white;
+  
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  padding: 2rem 1rem;
+  background-color: $color-bg;
+  border-right: 1px solid $color-border;
+  
+  ul {
+    list-style: none;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    a {
+      display: block;
+      padding: 0.5rem;
+      color: $color-text;
+      text-decoration: none;
+      border-radius: 4px;
+      
+      &:hover {
+        background-color: $color-secondary;
+      }
+    }
+  }
+}
+
+.content {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.component-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-border;
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    color: $color-primary;
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.code-example {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  
+  pre {
+    margin: 0;
+  }
+  
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid $color-border;
+  }
+  
+  .content {
+    margin-left: 0;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
