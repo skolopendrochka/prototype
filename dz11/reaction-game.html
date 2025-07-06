@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #game-container {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    #message {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    #action-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #action-button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Игра на реакцию</h1>
+  <div id="game-container">
+    <div id="message">Нажмите кнопку через 3 секунды</div>
+    <button id="action-button" disabled>Нажми меня</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const message = document.getElementById('message');
+    const button = document.getElementById('action-button');
+    const result = document.getElementById('result');
+    
+    let startTime;
+    let timer;
+    
+    function startGame() {
+      result.textContent = '';
+      button.disabled = true;
+      button.style.backgroundColor = '#cccccc';
+      message.textContent = 'Подготовьтесь...';
+      
+      // Случайная задержка от 1 до 5 секунд
+      const delay = 1000 + Math.random() * 4000;
+      
+      setTimeout(() => {
+        button.disabled = false;
+        button.style.backgroundColor = '#4CAF50';
+        message.textContent = 'Жмите сейчас!';
+        startTime = Date.now();
+      }, delay);
+    }
+    
+    button.addEventListener('click', () => {
+      if (!button.disabled) {
+        const reactionTime = Date.now() - startTime;
+        result.textContent = `Ваша реакция: ${reactionTime} мс`;
+        button.disabled = true;
+        button.style.backgroundColor = '#cccccc';
+        
+        // Перезапуск игры через 2 секунды
+        setTimeout(startGame, 2000);
+      }
+    });
+    
+    // Начало игры
+    startGame();
+  </script>
+</body>
+</html>
