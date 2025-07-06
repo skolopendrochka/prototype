@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bar</title>
+  <style>
+    #progress-container {
+      width: 300px;
+      height: 30px;
+      border: 1px solid #ccc;
+      margin: 20px;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #4CAF50;
+      transition: width 0.3s;
+    }
+    #status {
+      margin: 20px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Асинхронный прогресс-бар</h1>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  <div id="status">Загрузка: 0%</div>
+
+  <script>
+    const progressBar = document.getElementById('progress-bar');
+    const status = document.getElementById('status');
+    
+    function simulateAsyncTask(duration, steps) {
+      let progress = 0;
+      const step = 100 / steps;
+      const interval = duration / steps;
+      
+      const timer = setInterval(() => {
+        progress += step;
+        progressBar.style.width = `${progress}%`;
+        status.textContent = `Загрузка: ${Math.min(progress, 100).toFixed(0)}%`;
+        
+        if (progress >= 100) {
+          clearInterval(timer);
+          setTimeout(() => {
+            status.textContent = 'Готово!';
+          }, 300);
+        }
+      }, interval);
+    }
+    
+    // Запускаем задачу на 5 секунд с обновлением каждую секунду (20% за шаг)
+    simulateAsyncTask(5000, 5);
+  </script>
+</body>
+</html>
